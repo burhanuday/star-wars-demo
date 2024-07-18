@@ -24,6 +24,7 @@
     "babel-plugin-relay": "^16.2.0",
     "eslint": "8.x",
     "eslint-plugin-react": "^7.34.4",
+    "eslint-plugin-relay": "^1.8.3",
     "globals": "^15.8.0",
     "graphql": "^16.8.1",
     "parcel": "^2.12.0",

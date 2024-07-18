@@ -1997,6 +1997,13 @@ eslint-plugin-react@^7.34.4:
     string.prototype.matchall "^4.0.11"
     string.prototype.repeat "^1.0.0"
 
+eslint-plugin-relay@^1.8.3:
+  version "1.8.3"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/eslint-plugin-relay/-/eslint-plugin-relay-1.8.3.tgz#3f320b79259c14c8112909568b208a08e7a9ebae"
+  integrity sha512-awyrwntUTZ7Z+lJUnniTCnJdZYr1dY2djQDARMx1P1y2BFMsBjtTljBK0lBEM7yiTHPBwVnE2OSnXxcD4yMb0A==
+  dependencies:
+    graphql "^14.0.0 || ^15.0.0"
+
 eslint-scope@^7.2.2:
   version "7.2.2"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/eslint-scope/-/eslint-scope-7.2.2.tgz#deb4f92563390f32006894af62a22dba1c46423f"
@@ -2320,6 +2327,11 @@ graphql@15.3.0:
   version "15.3.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
   integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
+
+"graphql@^14.0.0 || ^15.0.0":
+  version "15.9.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/graphql/-/graphql-15.9.0.tgz#4e8ca830cfd30b03d44d3edd9cac2b0690304b53"
+  integrity sha512-GCOQdvm7XxV1S4U4CGrsdlEN37245eC8P9zaYCMr6K1BG0IPGy5lUwmJsEOGyl1GD6HXjOtl2keCP9asRBwNvA==
 
 graphql@^16.8.1:
   version "16.9.0"
