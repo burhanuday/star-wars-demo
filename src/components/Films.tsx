@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useFragment, useLazyLoadQuery } from "react-relay";
+import { graphql, useFragment } from "react-relay";
 import type { FilmsFragment$key as FilmsFragment } from "./__generated__/FilmsFragment.graphql";
 import { Film } from "./Film";
 

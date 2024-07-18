@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  graphql,
-  useFragment,
-  useLazyLoadQuery,
-  usePreloadedQuery,
-} from "react-relay";
+import { usePreloadedQuery } from "react-relay";
 import type { PersonDetailsQuery as Query } from "./__generated__/PersonDetailsQuery.graphql";
 import { ReactPortal } from "./ReactPortal";
 import { PersonDetailsQuery } from "./Person";

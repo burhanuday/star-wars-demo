@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<efd2ccccd89fe6bba387384011a08fbb>>
+ * @generated SignedSource<<881970a746deb7e7072be37faffa5056>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,6 +14,7 @@ export type FilmFragment$data = {
   readonly characterConnection: {
     readonly edges: ReadonlyArray<{
       readonly node: {
+        readonly id: string;
         readonly " $fragmentSpreads": FragmentRefs<"PersonFragment">;
       } | null | undefined;
     } | null | undefined> | null | undefined;
@@ -72,6 +73,13 @@ const node: ReaderFragment = {
               "plural": false,
               "selections": [
                 {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "id",
+                  "storageKey": null
+                },
+                {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "PersonFragment"
@@ -90,6 +98,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "0f7291cacad96f0f6dcbce90d9a9202e";
+(node as any).hash = "fe56803a8ff26de759f742b23e3496d7";
 
 export default node;

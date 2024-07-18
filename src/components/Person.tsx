@@ -1,10 +1,5 @@
 import React, { lazy, Suspense, useState } from "react";
-import {
-  graphql,
-  useFragment,
-  useLazyLoadQuery,
-  useQueryLoader,
-} from "react-relay";
+import { graphql, useFragment, useQueryLoader } from "react-relay";
 import type { PersonFragment$key as PersonFragment } from "./__generated__/PersonFragment.graphql";
 import type { PersonDetailsQuery as Query } from "./__generated__/PersonDetailsQuery.graphql";
 

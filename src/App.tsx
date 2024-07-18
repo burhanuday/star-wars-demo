@@ -1,6 +1,4 @@
 import React from "react";
-import { graphql, useLazyLoadQuery } from "react-relay";
-import { AppQuery as AppQuery } from "./__generated__/AppQuery.graphql";
 import RelayEnvironment from "./relay/RelayEnvironment";
 import { Home } from "./components/Home";
 

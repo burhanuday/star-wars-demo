@@ -1,7 +1,6 @@
 import React from "react";
-import { graphql, useFragment, useLazyLoadQuery } from "react-relay";
+import { graphql, useFragment } from "react-relay";
 import type { PeopleFragment$key as PeopleFragment } from "./__generated__/PeopleFragment.graphql";
-import { Film } from "./Film";
 import { Person } from "./Person";
 
 export function People(props) {

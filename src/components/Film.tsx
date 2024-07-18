@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useFragment, useLazyLoadQuery } from "react-relay";
+import { graphql, useFragment } from "react-relay";
 import type { FilmFragment$key as FilmFragment } from "./__generated__/FilmFragment.graphql";
 import { Person } from "./Person";
 
@@ -12,6 +12,7 @@ export function Film(props) {
         characterConnection {
           edges {
             node {
+              id
               ...PersonFragment
             }
           }
@@ -32,7 +33,7 @@ export function Film(props) {
           <h1>{data.title}</h1>
           <p>{data.releaseDate}</p>
           {data.characterConnection?.edges?.slice(0, 5).map((edge) => {
-            return <Person fragmentRef={edge?.node} />;
+            return <Person key={edge?.node?.id} fragmentRef={edge?.node} />;
           })}
         </div>
       </div>

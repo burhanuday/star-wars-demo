@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<41e2d6cb2964003a5b53d77b6bd7c4c5>>
+ * @generated SignedSource<<b4640174398cdba75499bc8a09472594>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -27,13 +27,27 @@ var v0 = {
   "name": "id",
   "storageKey": null
 },
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-};
+v1 = [
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "Person",
+    "kind": "LinkedField",
+    "name": "node",
+    "plural": false,
+    "selections": [
+      (v0/*: any*/),
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "name",
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
+  }
+];
 return {
   "fragment": {
     "argumentDefinitions": [],
@@ -115,21 +129,7 @@ return {
                         "kind": "LinkedField",
                         "name": "edges",
                         "plural": true,
-                        "selections": [
-                          {
-                            "alias": null,
-                            "args": null,
-                            "concreteType": "Person",
-                            "kind": "LinkedField",
-                            "name": "node",
-                            "plural": false,
-                            "selections": [
-                              (v1/*: any*/),
-                              (v0/*: any*/)
-                            ],
-                            "storageKey": null
-                          }
-                        ],
+                        "selections": (v1/*: any*/),
                         "storageKey": null
                       }
                     ],
@@ -159,21 +159,7 @@ return {
             "kind": "LinkedField",
             "name": "edges",
             "plural": true,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Person",
-                "kind": "LinkedField",
-                "name": "node",
-                "plural": false,
-                "selections": [
-                  (v0/*: any*/),
-                  (v1/*: any*/)
-                ],
-                "storageKey": null
-              }
-            ],
+            "selections": (v1/*: any*/),
             "storageKey": null
           }
         ],
@@ -182,12 +168,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e87cae1ba0be0fa58b000e7f500a43ed",
+    "cacheID": "fd1203e3da33de3d8ae1c6d800587db0",
     "id": null,
     "metadata": {},
     "name": "HomeQuery",
     "operationKind": "query",
-    "text": "query HomeQuery {\n  ...FilmsFragment\n  ...PeopleFragment\n}\n\nfragment FilmFragment on Film {\n  title\n  releaseDate\n  characterConnection {\n    edges {\n      node {\n        ...PersonFragment\n        id\n      }\n    }\n  }\n}\n\nfragment FilmsFragment on Root {\n  allFilms {\n    edges {\n      node {\n        id\n        ...FilmFragment\n      }\n    }\n  }\n}\n\nfragment PeopleFragment on Root {\n  allPeople {\n    edges {\n      node {\n        id\n        ...PersonFragment\n      }\n    }\n  }\n}\n\nfragment PersonFragment on Person {\n  name\n  id\n}\n"
+    "text": "query HomeQuery {\n  ...FilmsFragment\n  ...PeopleFragment\n}\n\nfragment FilmFragment on Film {\n  title\n  releaseDate\n  characterConnection {\n    edges {\n      node {\n        id\n        ...PersonFragment\n      }\n    }\n  }\n}\n\nfragment FilmsFragment on Root {\n  allFilms {\n    edges {\n      node {\n        id\n        ...FilmFragment\n      }\n    }\n  }\n}\n\nfragment PeopleFragment on Root {\n  allPeople {\n    edges {\n      node {\n        id\n        ...PersonFragment\n      }\n    }\n  }\n}\n\nfragment PersonFragment on Person {\n  name\n  id\n}\n"
   }
 };
 })();
