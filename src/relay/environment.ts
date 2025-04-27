@@ -8,17 +8,14 @@ import {
 import type { FetchFunction, IEnvironment } from "relay-runtime";
 
 const fetchFn: FetchFunction = (params, variables) => {
-  const response = fetch(
-    "https://swapi-graphql.netlify.app/.netlify/functions/index",
-    {
-      method: "POST",
-      headers: [["Content-Type", "application/json"]],
-      body: JSON.stringify({
-        query: params.text,
-        variables,
-      }),
-    }
-  );
+  const response = fetch("https://swapi-graphql.netlify.app/graphql", {
+    method: "POST",
+    headers: [["Content-Type", "application/json"]],
+    body: JSON.stringify({
+      query: params.text,
+      variables,
+    }),
+  });
 
   return Observable.from(response.then((data) => data.json()));
 };
