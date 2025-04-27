@@ -1,8 +1,20 @@
 import React from "react";
-import { usePreloadedQuery } from "react-relay";
+import { graphql, usePreloadedQuery } from "react-relay";
 import type { PersonDetailsQuery as Query } from "./__generated__/PersonDetailsQuery.graphql";
 import { ReactPortal } from "./ReactPortal";
-import { PersonDetailsQuery } from "./Person";
+
+export const PersonDetailsQuery = graphql`
+  query PersonDetailsQuery($id: ID!) {
+    person(id: $id) {
+      name
+      id
+      eyeColor
+      hairColor
+      height
+      mass
+    }
+  }
+`;
 
 export function PersonDetails(props) {
   const data = usePreloadedQuery<Query>(PersonDetailsQuery, props.queryRef);

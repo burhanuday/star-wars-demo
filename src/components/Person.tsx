@@ -2,19 +2,7 @@ import React, { lazy, Suspense, useState } from "react";
 import { graphql, useFragment, useQueryLoader } from "react-relay";
 import type { PersonFragment$key as PersonFragment } from "./__generated__/PersonFragment.graphql";
 import type { PersonDetailsQuery as Query } from "./__generated__/PersonDetailsQuery.graphql";
-
-export const PersonDetailsQuery = graphql`
-  query PersonDetailsQuery($id: ID!) {
-    person(id: $id) {
-      name
-      id
-      eyeColor
-      hairColor
-      height
-      mass
-    }
-  }
-`;
+import { PersonDetailsQuery } from "./PersonDetails";
 
 const AsyncPersonDetails = lazy(() =>
   import("./PersonDetails").then((module) => ({
