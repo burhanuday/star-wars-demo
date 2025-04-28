@@ -1,14 +1,14 @@
-import React, { lazy, Suspense, useState } from "react";
-import { graphql, useFragment, useQueryLoader } from "react-relay";
+import React, { Suspense, useState } from "react";
+import {
+  EntryPointContainer,
+  graphql,
+  useEntryPointLoader,
+  useFragment,
+  useRelayEnvironment,
+} from "react-relay";
 import type { PersonFragment$key as PersonFragment } from "./__generated__/PersonFragment.graphql";
-import type { PersonDetailsQuery as Query } from "./__generated__/PersonDetailsQuery.graphql";
-import { PersonDetailsQuery } from "./PersonDetails";
 
-const AsyncPersonDetails = lazy(() =>
-  import("./PersonDetails").then((module) => ({
-    default: module.PersonDetails,
-  }))
-);
+import personDetailsEntryPoint from "./personDetailsEntrypoint";
 
 export function Person(props) {
   const [showModal, setShowModal] = useState(false);
@@ -23,10 +23,17 @@ export function Person(props) {
     props.fragmentRef
   );
 
-  const [queryRef, loadQuery] = useQueryLoader<Query>(PersonDetailsQuery);
+  const environment = useRelayEnvironment();
+
+  const [entrypointReference, loadEntrypoint] = useEntryPointLoader(
+    { getEnvironment: () => environment },
+    personDetailsEntryPoint
+  );
 
   const handlePersonClicked = () => {
-    loadQuery({ id: data.id });
+    loadEntrypoint({
+      id: data.id,
+    });
     setShowModal(true);
   };
 
@@ -44,9 +51,12 @@ export function Person(props) {
       >
         <p>{data.name}</p>
       </div>
-      {showModal && (
+      {showModal && entrypointReference && (
         <Suspense fallback="loading...">
-          <AsyncPersonDetails queryRef={queryRef} />
+          <EntryPointContainer
+            entryPointReference={entrypointReference}
+            props={{}}
+          />
         </Suspense>
       )}
     </>

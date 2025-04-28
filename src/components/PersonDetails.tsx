@@ -1,23 +1,31 @@
 import React from "react";
-import { graphql, usePreloadedQuery } from "react-relay";
-import type { PersonDetailsQuery as Query } from "./__generated__/PersonDetailsQuery.graphql";
+import { EntryPointComponent, graphql, usePreloadedQuery } from "react-relay";
+import type { PersonDetailsQuery } from "./__generated__/PersonDetailsQuery.graphql";
 import { ReactPortal } from "./ReactPortal";
 
-export const PersonDetailsQuery = graphql`
-  query PersonDetailsQuery($id: ID!) {
-    person(id: $id) {
-      name
-      id
-      eyeColor
-      hairColor
-      height
-      mass
-    }
-  }
-`;
-
-export function PersonDetails(props) {
-  const data = usePreloadedQuery<Query>(PersonDetailsQuery, props.queryRef);
+const PersonDetails: EntryPointComponent<
+  {
+    personDetailsQuery: PersonDetailsQuery;
+  },
+  Record<string, never>,
+  Record<string, never>,
+  Record<string, never>
+> = (props) => {
+  const data = usePreloadedQuery<PersonDetailsQuery>(
+    graphql`
+      query PersonDetailsQuery($id: ID!) {
+        person(id: $id) {
+          name
+          id
+          eyeColor
+          hairColor
+          height
+          mass
+        }
+      }
+    `,
+    props.queries.personDetailsQuery
+  );
 
   if (!data) {
     return <div>Loading...</div>;
@@ -61,4 +69,6 @@ export function PersonDetails(props) {
       </div>
     </ReactPortal>
   );
-}
+};
+
+export default PersonDetails;
